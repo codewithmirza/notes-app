@@ -214,12 +214,10 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                     padding: const EdgeInsets.all(16),
                     child: QuillEditor.basic(
                       controller: _quillController,
-                      padding: EdgeInsets.zero,
                     ),
                   )
                 : QuillEditor.basic(
                     controller: _quillController,
-                    padding: const EdgeInsets.all(16),
                   ),
           ),
           

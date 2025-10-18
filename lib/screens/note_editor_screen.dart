@@ -151,9 +151,6 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
                   : null,
               child: QuillEditor.basic(
                 controller: _quillController,
-                placeholder: 'Start writing...',
-                padding: const EdgeInsets.all(16),
-                autoFocus: widget.note == null,
               ),
             ),
           ),
