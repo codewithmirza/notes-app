@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/note.dart';
 import '../bloc/notes_bloc.dart';
+import '../bloc/notes_event.dart';
+import '../bloc/notes_state.dart';
 import '../utils/app_theme.dart';
 import '../widgets/color_picker_dialog.dart';
 

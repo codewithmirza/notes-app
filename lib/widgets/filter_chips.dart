@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/notes_bloc.dart';
+import '../bloc/notes_event.dart';
+import '../bloc/notes_state.dart';
 
 class FilterChips extends StatefulWidget {
   final ValueChanged<String?>? onTagSelected;
