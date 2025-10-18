@@ -109,93 +109,112 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Title input
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: TextField(
-              controller: _titleController,
-              decoration: const InputDecoration(
-                hintText: 'Untitled',
-                border: InputBorder.none,
-              ),
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height - 
+                      MediaQuery.of(context).padding.top - 
+                      kToolbarHeight - 
+                      kBottomNavigationBarHeight,
+          ),
+          child: IntrinsicHeight(
+            child: Column(
+              children: [
+                // Title input
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TextField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(
+                      hintText: 'Untitled',
+                      border: InputBorder.none,
+                    ),
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                
+                // Tags display
+                if (_tags.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Wrap(
+                      spacing: 8,
+                      children: _tags.map((tag) => Chip(
+                        label: Text(tag),
+                        onDeleted: () {
+                          setState(() {
+                            _tags.remove(tag);
+                          });
+                        },
+                      )).toList(),
+                    ),
+                  ),
+                
+                const Divider(),
+                
+                // Rich text editor
+                Flexible(
+                  child: Container(
+                    color: _selectedColor != null 
+                        ? Color(int.parse(_selectedColor!.replaceFirst('#', '0xFF')))
+                        : null,
+                    child: QuillEditor.basic(
+                      configurations: QuillEditorConfigurations(
+                        controller: _quillController,
+                        placeholder: 'Start writing...',
+                        autoFocus: false,
+                        expands: true,
+                        padding: const EdgeInsets.all(16),
+                        scrollable: true,
+                        showCursor: true,
+                        enableInteractiveSelection: true,
+                      ),
+                    ),
+                  ),
+                ),
+                
+                // Toolbar
+                Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    border: Border(
+                      top: BorderSide(
+                        color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+                      ),
+                    ),
+                  ),
+                  child: QuillToolbar.simple(
+                    configurations: QuillSimpleToolbarConfigurations(
+                      controller: _quillController,
+                      sharedConfigurations: const QuillSharedConfigurations(
+                        locale: Locale('en'),
+                      ),
+                      showBoldButton: true,
+                      showItalicButton: true,
+                      showUnderLineButton: true,
+                      showStrikeThrough: true,
+                      showCodeBlock: true,
+                      showQuote: true,
+                      showListNumbers: true,
+                      showListBullets: true,
+                      showIndent: true,
+                      showLink: true,
+                      showSearchButton: false,
+                      showUndo: true,
+                      showRedo: true,
+                      showClearFormat: true,
+                      showAlignmentButtons: true,
+                      showHeaderStyle: true,
+                      showListCheck: true,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          
-          // Tags display
-          if (_tags.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Wrap(
-                spacing: 8,
-                children: _tags.map((tag) => Chip(
-                  label: Text(tag),
-                  onDeleted: () {
-                    setState(() {
-                      _tags.remove(tag);
-                    });
-                  },
-                )).toList(),
-              ),
-            ),
-          
-          const Divider(),
-          
-          // Rich text editor
-          Expanded(
-            child: Container(
-              color: _selectedColor != null 
-                  ? Color(int.parse(_selectedColor!.replaceFirst('#', '0xFF')))
-                  : null,
-              child: QuillEditor.basic(
-                configurations: QuillEditorConfigurations(
-                  controller: _quillController,
-                ),
-              ),
-            ),
-          ),
-          
-          // Toolbar
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              border: Border(
-                top: BorderSide(
-                  color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
-                ),
-              ),
-            ),
-            child: QuillToolbar.simple(
-              configurations: QuillSimpleToolbarConfigurations(
-                controller: _quillController,
-                sharedConfigurations: const QuillSharedConfigurations(
-                  locale: Locale('en'),
-                ),
-                showBoldButton: true,
-                showItalicButton: true,
-                showUnderLineButton: true,
-                showStrikeThrough: true,
-                showCodeBlock: true,
-                showQuote: true,
-                showListNumbers: true,
-                showListBullets: true,
-                showIndent: true,
-                showLink: true,
-                showSearchButton: false,
-                showUndo: true,
-                showRedo: true,
-                showClearFormat: true,
-                showAlignmentButtons: true,
-                showHeaderStyle: true,
-                showListCheck: true,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

@@ -20,9 +20,21 @@ class DatabaseService {
     String path = join(await getDatabasesPath(), 'notes_app.db');
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Drop and recreate tables with correct schema
+      await db.execute('DROP TABLE IF EXISTS notes');
+      await db.execute('DROP TABLE IF EXISTS note_blocks');
+      await db.execute('DROP TABLE IF EXISTS database_columns');
+      await db.execute('DROP TABLE IF EXISTS database_rows');
+      await _onCreate(db, newVersion);
+    }
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -38,7 +50,7 @@ class DatabaseService {
         tags TEXT,
         isPinned INTEGER NOT NULL DEFAULT 0,
         parentId TEXT,
-        order_index INTEGER NOT NULL DEFAULT 0,
+        "order" INTEGER NOT NULL DEFAULT 0,
         type TEXT NOT NULL DEFAULT 'page'
       )
     ''');
