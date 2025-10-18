@@ -48,17 +48,19 @@ class NoteDeleted extends NotesEvent {
 // Search and filter events
 class NotesSearched extends NotesEvent {
   final String query;
+  final String? selectedTag;
+  final bool showPinnedOnly;
   
-  const NotesSearched(this.query);
+  const NotesSearched(this.query, {this.selectedTag, this.showPinnedOnly = false});
   
   @override
-  List<Object?> get props => [query];
+  List<Object?> get props => [query, selectedTag, showPinnedOnly];
 }
 
-class NotesFilteredByTag extends NotesEvent {
+class TagFilterSelected extends NotesEvent {
   final String? tag;
   
-  const NotesFilteredByTag(this.tag);
+  const TagFilterSelected(this.tag);
   
   @override
   List<Object?> get props => [tag];

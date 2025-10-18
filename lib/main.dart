@@ -4,14 +4,9 @@ import 'bloc/notes_bloc.dart';
 import 'bloc/notes_event.dart';
 import 'screens/home_screen.dart';
 import 'utils/app_theme.dart';
-import 'services/sample_data_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Add sample data for first-time users
-  // await SampleDataService.addSampleData(); // Temporarily disabled
-
   runApp(const NotesApp());
 }
 
