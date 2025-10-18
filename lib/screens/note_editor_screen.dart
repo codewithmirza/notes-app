@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,12 +63,9 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
 
   List<Map<String, dynamic>> _parseContent(String content) {
     try {
-      // Simple parsing - in a real app, you'd want more robust parsing
-      return [
-        {
-          "insert": content,
-        }
-      ];
+      // Parse JSON content for Flutter Quill
+      final Map<String, dynamic> jsonData = jsonDecode(content);
+      return List<Map<String, dynamic>>.from(jsonData['ops']);
     } catch (e) {
       return [
         {

@@ -86,21 +86,21 @@ class NotesCacheService {
     final sampleNotes = [
       Note(
         title: 'Welcome to Notes App',
-        content: 'Welcome to your new notes app! This is a powerful note-taking application with Notion-like features.\n\n## Features\n- Rich text editing\n- Tags and organization\n- Search functionality\n- Pin important notes\n- Color coding\n\nStart creating your first note!',
+        content: '{"ops":[{"insert":"Welcome to your new notes app! This is a powerful note-taking application with Notion-like features.\\n"}]}',
         color: '#DBEAFE',
         tags: ['welcome', 'getting-started'],
         type: NoteType.page,
       ),
       Note(
         title: 'Project Ideas',
-        content: '## My Project Ideas\n\n### Web Development\n- Personal portfolio website\n- E-commerce platform\n- Blog with CMS\n\n### Mobile Apps\n- Fitness tracking app\n- Recipe manager\n- Expense tracker\n\n### AI/ML Projects\n- Chatbot for customer service\n- Image recognition system\n- Recommendation engine',
+        content: '{"ops":[{"insert":"My Project Ideas\\n\\nWeb Development\\n- Personal portfolio website\\n- E-commerce platform\\n- Blog with CMS\\n\\nMobile Apps\\n- Fitness tracking app\\n- Recipe manager\\n- Expense tracker\\n\\nAI/ML Projects\\n- Chatbot for customer service\\n- Image recognition system\\n- Recommendation engine\\n"}]}',
         color: '#F3E8FF',
         tags: ['projects', 'ideas', 'development'],
         type: NoteType.page,
       ),
       Note(
         title: 'Learning Resources',
-        content: '## Online Learning Resources\n\n### Programming\n- **Flutter:**\n  - Flutter.dev official docs\n  - Flutter YouTube channel\n  - Dart language tour\n\n- **Web Development:**\n  - MDN Web Docs\n  - freeCodeCamp\n  - Codecademy\n\n### Design\n- Figma tutorials\n- Adobe Creative Suite\n- Design principles\n\n### General\n- Coursera courses\n- Udemy classes\n- YouTube tutorials',
+        content: '{"ops":[{"insert":"Online Learning Resources\\n\\nProgramming\\n- Flutter:\\n  - Flutter.dev official docs\\n  - Flutter YouTube channel\\n  - Dart language tour\\n\\n- Web Development:\\n  - MDN Web Docs\\n  - freeCodeCamp\\n  - Codecademy\\n\\nDesign\\n- Figma tutorials\\n- Adobe Creative Suite\\n- Design principles\\n\\nGeneral\\n- Coursera courses\\n- Udemy classes\\n- YouTube tutorials\\n"}]}',
         color: '#E0E7FF',
         tags: ['learning', 'resources', 'education'],
         type: NoteType.page,
