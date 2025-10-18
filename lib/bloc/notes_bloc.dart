@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../models/note.dart';
 import '../services/notes_cache_service.dart';
 import 'notes_event.dart';
 import 'notes_state.dart';

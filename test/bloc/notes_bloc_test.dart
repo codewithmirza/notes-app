@@ -3,7 +3,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:notes_app/bloc/notes_bloc.dart';
 import 'package:notes_app/bloc/notes_event.dart';
 import 'package:notes_app/bloc/notes_state.dart';
-import 'package:notes_app/models/note.dart';
 
 void main() {
   group('NotesBloc', () {
@@ -27,7 +26,6 @@ void main() {
       build: () => notesBloc,
       seed: () => const NotesLoadedSuccess(
         notes: [],
-        filteredNotes: [],
         showPinnedOnly: false,
       ),
       act: (bloc) => bloc.add(const PinnedFilterToggled()),
@@ -41,7 +39,6 @@ void main() {
       build: () => notesBloc,
       seed: () => const NotesLoadedSuccess(
         notes: [],
-        filteredNotes: [],
         searchQuery: 'test',
         selectedTag: 'test-tag',
         showPinnedOnly: true,
