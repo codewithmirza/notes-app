@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 12),
                       FilterChips(
-                        onTagSelected: (tag) => context.read<NotesBloc>().add(NotesFilteredByTag(tag)),
+                        onTagSelected: (tag) => context.read<NotesBloc>().add(TagFilterSelected(tag)),
                         onPinnedToggle: () => context.read<NotesBloc>().add(const PinnedFilterToggled()),
                         onClearFilters: () {
                           context.read<NotesBloc>().add(const FiltersCleared());
@@ -187,9 +187,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // Notes List
                 Expanded(
-                  child: state.filteredNotes.isEmpty
+                  child: state.notes.isEmpty
                       ? _buildEmptyState()
-                      : _buildNotesList(state.filteredNotes),
+                      : _buildNotesList(state.notes),
                 ),
               ],
             );

@@ -120,7 +120,7 @@ class NoteCard extends StatelessWidget {
               const SizedBox(height: 8),
               
               // Content preview
-              Expanded(
+              Flexible(
                 child: Text(
                   note.content,
                   style: theme.textTheme.bodyMedium?.copyWith(
@@ -138,7 +138,7 @@ class NoteCard extends StatelessWidget {
                 children: [
                   // Tags
                   if (note.tags.isNotEmpty)
-                    Expanded(
+                    Flexible(
                       child: Wrap(
                         spacing: 4,
                         runSpacing: 4,

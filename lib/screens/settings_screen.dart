@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/notes_bloc.dart';
 import '../bloc/notes_event.dart';
 import '../bloc/notes_state.dart';
-import '../services/sample_data_service.dart';
+import '../services/notes_cache_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -179,7 +179,7 @@ class SettingsScreen extends StatelessWidget {
             onPressed: () async {
               Navigator.pop(context);
                 try {
-                  await SampleDataService.addSampleData();
+                  await NotesCacheService().initialize();
                   if (context.mounted) {
                     context.read<NotesBloc>().add(const NotesLoaded());
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -218,7 +218,7 @@ class SettingsScreen extends StatelessWidget {
             onPressed: () async {
               Navigator.pop(context);
               try {
-                await SampleDataService.clearAllData();
+                await NotesCacheService().clearAllData();
                 if (context.mounted) {
                   context.read<NotesBloc>().add(const NotesLoaded());
                   ScaffoldMessenger.of(context).showSnackBar(
