@@ -59,7 +59,7 @@ class NoteCard extends StatelessWidget {
                     Icon(
                       Icons.push_pin,
                       size: 16,
-                      color: _getTextColor(color).withOpacity(0.7),
+                      color: _getTextColor(color).withValues(alpha: 0.7),
                     ),
                   PopupMenuButton<String>(
                     onSelected: (value) {
@@ -113,7 +113,7 @@ class NoteCard extends StatelessWidget {
                     child: Icon(
                       Icons.more_vert,
                       size: 20,
-                      color: _getTextColor(color).withOpacity(0.7),
+                      color: _getTextColor(color).withValues(alpha: 0.7),
                     ),
                   ),
                 ],
@@ -126,7 +126,7 @@ class NoteCard extends StatelessWidget {
                 child: Text(
                   note.content,
                   style: theme.textTheme.bodyMedium?.copyWith(
-                    color: _getTextColor(color).withOpacity(0.8),
+                    color: _getTextColor(color).withValues(alpha: 0.8),
                   ),
                   maxLines: isListView ? 3 : 4,
                   overflow: TextOverflow.ellipsis,
@@ -147,13 +147,13 @@ class NoteCard extends StatelessWidget {
                         children: note.tags.take(2).map((tag) => Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: _getTextColor(color).withOpacity(0.1),
+                            color: _getTextColor(color).withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
                             tag,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: _getTextColor(color).withOpacity(0.8),
+                              color: _getTextColor(color).withValues(alpha: 0.8),
                               fontSize: 10,
                             ),
                           ),
@@ -165,7 +165,7 @@ class NoteCard extends StatelessWidget {
                   Text(
                     _formatDate(note.updatedAt),
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: _getTextColor(color).withOpacity(0.6),
+                      color: _getTextColor(color).withValues(alpha: 0.6),
                       fontSize: 10,
                     ),
                   ),
@@ -178,7 +178,7 @@ class NoteCard extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 4),
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: _getTextColor(color).withOpacity(0.1),
+                    color: _getTextColor(color).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Row(
@@ -187,13 +187,13 @@ class NoteCard extends StatelessWidget {
                       Icon(
                         _getTypeIcon(note.type),
                         size: 12,
-                        color: _getTextColor(color).withOpacity(0.7),
+                        color: _getTextColor(color).withValues(alpha: 0.7),
                       ),
                       const SizedBox(width: 4),
                       Text(
                         _getTypeName(note.type),
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: _getTextColor(color).withOpacity(0.7),
+                          color: _getTextColor(color).withValues(alpha: 0.7),
                           fontSize: 10,
                         ),
                       ),

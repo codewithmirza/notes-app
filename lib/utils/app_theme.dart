@@ -28,7 +28,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
         ),
         color: Colors.white,
-        shadowColor: Colors.black.withOpacity(0.1),
+        shadowColor: Colors.black.withValues(alpha: 0.1),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -58,7 +58,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: Colors.grey.shade100,
-        selectedColor: primaryColor.withOpacity(0.1),
+        selectedColor: primaryColor.withValues(alpha: 0.1),
         labelStyle: const TextStyle(fontSize: 14),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -93,7 +93,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
         ),
         color: const Color(0xFF1F2937),
-        shadowColor: Colors.black.withOpacity(0.3),
+        shadowColor: Colors.black.withValues(alpha: 0.3),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -123,7 +123,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: const Color(0xFF374151),
-        selectedColor: primaryColor.withOpacity(0.2),
+        selectedColor: primaryColor.withValues(alpha: 0.2),
         labelStyle: const TextStyle(fontSize: 14),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),

@@ -162,26 +162,26 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                     Icon(
                       Icons.access_time,
                       size: 16,
-                      color: _getTextColor(color).withOpacity(0.7),
+                      color: _getTextColor(color).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       'Created ${_formatDate(widget.note.createdAt)}',
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: _getTextColor(color).withOpacity(0.7),
+                        color: _getTextColor(color).withValues(alpha: 0.7),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Icon(
                       Icons.update,
                       size: 16,
-                      color: _getTextColor(color).withOpacity(0.7),
+                      color: _getTextColor(color).withValues(alpha: 0.7),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       'Updated ${_formatDate(widget.note.updatedAt)}',
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: _getTextColor(color).withOpacity(0.7),
+                        color: _getTextColor(color).withValues(alpha: 0.7),
                       ),
                     ),
                   ],
@@ -194,9 +194,9 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                     spacing: 8,
                     children: widget.note.tags.map((tag) => Chip(
                       label: Text(tag),
-                      backgroundColor: _getTextColor(color).withOpacity(0.1),
+                      backgroundColor: _getTextColor(color).withValues(alpha: 0.1),
                       labelStyle: TextStyle(
-                        color: _getTextColor(color).withOpacity(0.8),
+                        color: _getTextColor(color).withValues(alpha: 0.8),
                       ),
                     )).toList(),
                   ),
@@ -232,7 +232,7 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                 color: theme.colorScheme.surface,
                 border: Border(
                   top: BorderSide(
-                    color: theme.colorScheme.outline.withOpacity(0.2),
+                    color: theme.colorScheme.outline.withValues(alpha: 0.2),
                   ),
                 ),
               ),

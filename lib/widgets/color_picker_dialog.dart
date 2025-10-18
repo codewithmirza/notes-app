@@ -27,7 +27,7 @@ class ColorPickerDialog extends StatelessWidget {
           itemCount: AppTheme.noteColors.length,
           itemBuilder: (context, index) {
             final color = AppTheme.noteColors[index];
-            final isSelected = selectedColor == color.value.toRadixString(16).padLeft(8, '0').substring(2);
+            final isSelected = selectedColor == '#${color.value.toRadixString(16).padLeft(8, '0').substring(2)}';
             
             return GestureDetector(
               onTap: () {
