@@ -152,7 +152,9 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
                   ? Color(int.parse(_selectedColor!.replaceFirst('#', '0xFF')))
                   : null,
               child: QuillEditor.basic(
-                controller: _quillController,
+                configurations: QuillEditorConfigurations(
+                  controller: _quillController,
+                ),
               ),
             ),
           ),

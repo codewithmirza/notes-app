@@ -215,11 +215,15 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
                 ? SingleChildScrollView(
                     padding: const EdgeInsets.all(16),
                     child: QuillEditor.basic(
-                      controller: _quillController,
+                      configurations: QuillEditorConfigurations(
+                        controller: _quillController,
+                      ),
                     ),
                   )
                 : QuillEditor.basic(
-                    controller: _quillController,
+                    configurations: QuillEditorConfigurations(
+                      controller: _quillController,
+                    ),
                   ),
           ),
           
