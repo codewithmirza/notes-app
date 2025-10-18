@@ -63,8 +63,8 @@ class Note {
       'createdAt': createdAt.toIso8601String(),
       'updatedAt': updatedAt.toIso8601String(),
       'color': color,
-      'tags': tags,
-      'isPinned': isPinned,
+      'tags': tags.join(','), // Convert List<String> to comma-separated string
+      'isPinned': isPinned ? 1 : 0, // Convert bool to int
       'parentId': parentId,
       'order': order,
       'type': type.toString(),
@@ -79,8 +79,8 @@ class Note {
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
       color: json['color'],
-      tags: List<String>.from(json['tags'] ?? []),
-      isPinned: json['isPinned'] ?? false,
+      tags: (json['tags'] as String?)?.split(',') ?? [], // Convert comma-separated string back to List<String>
+      isPinned: (json['isPinned'] as int?) == 1, // Convert int back to bool
       parentId: json['parentId'],
       order: json['order'] ?? 0,
       type: NoteType.values.firstWhere(

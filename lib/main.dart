@@ -10,8 +10,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   // Add sample data for first-time users
-  await SampleDataService.addSampleData();
-  
+  // await SampleDataService.addSampleData(); // Temporarily disabled
+
   runApp(const NotesApp());
 }
 
