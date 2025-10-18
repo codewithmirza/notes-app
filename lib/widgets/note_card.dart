@@ -35,10 +35,12 @@ class NoteCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+          padding: const EdgeInsets.all(12),
+          child: ClipRect(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
               // Header with pin and actions
               Row(
                 children: [
@@ -117,7 +119,7 @@ class NoteCard extends StatelessWidget {
                 ],
               ),
               
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               
               // Content preview
               Flexible(
@@ -131,7 +133,7 @@ class NoteCard extends StatelessWidget {
                 ),
               ),
               
-              const SizedBox(height: 12),
+              const SizedBox(height: 6),
               
               // Footer with tags and date
               Row(
@@ -173,7 +175,7 @@ class NoteCard extends StatelessWidget {
               // Type indicator
               if (note.type != NoteType.page)
                 Container(
-                  margin: const EdgeInsets.only(top: 8),
+                  margin: const EdgeInsets.only(top: 4),
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: _getTextColor(color).withOpacity(0.1),
@@ -199,6 +201,7 @@ class NoteCard extends StatelessWidget {
                   ),
                 ),
             ],
+            ),
           ),
         ),
       ),
